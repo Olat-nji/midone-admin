@@ -15,10 +15,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'midone-admin:install {stack : The development stack that should be installed}
-                                              {--teams : Indicates if team support should be installed}
-                                              {--pest : Indicates if Pest should be installed}
-                                              {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
+    protected $signature = 'midone-admin:install ';
 
     /**
      * The console command description.
@@ -71,9 +68,9 @@ class InstallCommand extends Command
         );
 
         // Install Stack...
-        if ($this->argument('stack') === 'livewire') {
+        
             $this->installLivewireStack();
-        }
+        
 
         // Tests...
         $stubs = $this->getTestStubsPath();
