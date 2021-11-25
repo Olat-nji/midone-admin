@@ -40,7 +40,7 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'models', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'app', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'public', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'routes', '--force' => true]);
+        
 
 
 
