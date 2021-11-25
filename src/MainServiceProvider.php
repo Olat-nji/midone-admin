@@ -2,27 +2,15 @@
 
 namespace Olatunji\MidoneAdmin;
 
-use App\Http\Middleware\HandleInertiaRequests;
-use Illuminate\Contracts\Http\Kernel;
+
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
-use Inertia\Inertia;
+
 use Laravel\Fortify\Fortify;
-use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
-use Laravel\Jetstream\Http\Livewire\CreateTeamForm;
-use Laravel\Jetstream\Http\Livewire\DeleteTeamForm;
-use Laravel\Jetstream\Http\Livewire\DeleteUserForm;
-use Laravel\Jetstream\Http\Livewire\LogoutOtherBrowserSessionsForm;
-use Laravel\Jetstream\Http\Livewire\NavigationMenu;
-use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
-use Laravel\Jetstream\Http\Livewire\TwoFactorAuthenticationForm;
-use Laravel\Jetstream\Http\Livewire\UpdatePasswordForm;
-use Laravel\Jetstream\Http\Livewire\UpdateProfileInformationForm;
-use Laravel\Jetstream\Http\Livewire\UpdateTeamNameForm;
+
 
 use Livewire\Livewire;
 
@@ -35,7 +23,7 @@ class MainServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/jetstream.php', 'jetstream');
+        $this->mergeConfigFrom(__DIR__.'/../config/main.php', 'main');
 
         
     }

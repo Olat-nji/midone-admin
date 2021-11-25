@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Jetstream\Console;
+namespace Olatunji\MidoneAdmin\Console;
 
 use Exception;
 use Illuminate\Console\Command;
