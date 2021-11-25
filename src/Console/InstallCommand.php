@@ -80,7 +80,7 @@ class InstallCommand extends Command
     }
 
     /**
-     * Configure the session driver for Jetstream.
+     * Configure the session driver for Midone Admin.
      *
      * @return void
      */
@@ -146,7 +146,7 @@ class InstallCommand extends Command
 
         // Service Providers...
         copy(__DIR__ . '/../../stubs/app/Providers/MainServiceProvider.php', app_path('Providers/MainServiceProvider.php'));
-        $this->installServiceProviderAfter('FortifyServiceProvider', 'JetstreamServiceProvider');
+        $this->installServiceProviderAfter('FortifyServiceProvider', 'MainServiceProvider');
 
 
 

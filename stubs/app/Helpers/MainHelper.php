@@ -13,7 +13,7 @@ use App\Helpers\Role;
 class MainHelper
 {
     /**
-     * Indicates if Jetstream routes will be registered.
+     * Indicates if Midone Admin routes will be registered.
      *
      * @var bool
      */
@@ -41,21 +41,21 @@ class MainHelper
     public static $defaultPermissions = [];
 
     /**
-     * The user model that should be used by Jetstream.
+     * The user model that should be used by Midone Admin.
      *
      * @var string
      */
     public static $userModel = 'App\\Models\\User';
 
     /**
-     * The team model that should be used by Jetstream.
+     * The team model that should be used by Midone Admin.
      *
      * @var string
      */
     public static $teamModel = 'App\\Models\\Team';
 
     /**
-     * The membership model that should be used by Jetstream.
+     * The membership model that should be used by Midone Admin.
      *
      * @var string
      */
@@ -69,7 +69,7 @@ class MainHelper
     public static $inertiaManager;
 
     /**
-     * Determine if Jetstream has registered roles.
+     * Determine if Midone Admin has registered roles.
      *
      * @return bool
      */
@@ -111,7 +111,7 @@ class MainHelper
     }
 
     /**
-     * Determine if any permissions have been registered with Jetstream.
+     * Determine if any permissions have been registered with Midone Admin.
      *
      * @return bool
      */
@@ -158,7 +158,7 @@ class MainHelper
     }
 
     /**
-     * Determine if Jetstream is managing profile photos.
+     * Determine if Midone Admin is managing profile photos.
      *
      * @return bool
      */
@@ -168,7 +168,7 @@ class MainHelper
     }
 
     /**
-     * Determine if Jetstream is supporting API features.
+     * Determine if Midone Admin is supporting API features.
      *
      * @return bool
      */
@@ -178,7 +178,7 @@ class MainHelper
     }
 
     /**
-     * Determine if Jetstream is supporting team features.
+     * Determine if Midone Admin is supporting team features.
      *
      * @return bool
      */
@@ -231,7 +231,7 @@ class MainHelper
     }
 
     /**
-     * Specify the user model that should be used by Jetstream.
+     * Specify the user model that should be used by Midone Admin.
      *
      * @param  string  $model
      * @return static
@@ -266,7 +266,7 @@ class MainHelper
     }
 
     /**
-     * Specify the team model that should be used by Jetstream.
+     * Specify the team model that should be used by Midone Admin.
      *
      * @param  string  $model
      * @return static
@@ -289,7 +289,7 @@ class MainHelper
     }
 
     /**
-     * Specify the membership model that should be used by Jetstream.
+     * Specify the membership model that should be used by Midone Admin.
      *
      * @param  string  $model
      * @return static
@@ -357,13 +357,13 @@ class MainHelper
     }
 
     /**
-     * Manage Jetstream's Inertia settings.
+     * Manage Midone Admin's Inertia settings.
      *
      * @return \App\InertiaManager
      */
     
     /**
-     * Configure Jetstream to not register its routes.
+     * Configure Midone Admin to not register its routes.
      *
      * @return static
      */
