@@ -15,7 +15,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'midone-admin:install ';
+    protected $signature = 'midone-admin:install {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
 
     /**
      * The console command description.
@@ -40,7 +40,7 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'models', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'app', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'public', '--force' => true]);
-        
+
 
 
 
@@ -68,9 +68,9 @@ class InstallCommand extends Command
         );
 
         // Install Stack...
-        
-            $this->installLivewireStack();
-        
+
+        $this->installLivewireStack();
+
 
         // Tests...
         $stubs = $this->getTestStubsPath();
