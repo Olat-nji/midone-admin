@@ -72,8 +72,7 @@ class InstallCommand extends Command
         $this->installLivewireStack();
 
 
-        // Tests...
-        $stubs = $this->getTestStubsPath();
+        
     }
 
     /**
@@ -113,12 +112,6 @@ class InstallCommand extends Command
                 $this->output->write($output);
             });
 
-        // Update Configuration...
-
-        // $this->replaceInFile("'guard' => 'web'", "'guard' => 'sanctum'", config_path('auth.php'));
-
-        // NPM Packages...
-        
 
 
         // Directories...
