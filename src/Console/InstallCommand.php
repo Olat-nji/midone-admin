@@ -118,15 +118,7 @@ class InstallCommand extends Command
         // $this->replaceInFile("'guard' => 'web'", "'guard' => 'sanctum'", config_path('auth.php'));
 
         // NPM Packages...
-        $this->updateNodePackages(function ($packages) {
-            return [
-                '@tailwindcss/forms' => '^0.3.1',
-                '@tailwindcss/typography' => '^0.4.0',
-                'alpinejs' => '^3.0.6',
-                'postcss-import' => '^14.0.1',
-                'tailwindcss' => '^2.2.2',
-            ] + $packages;
-        });
+        
 
 
         // Directories...
