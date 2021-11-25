@@ -23,7 +23,7 @@ class MainServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/main.php', 'main');
+
 
         
     }
