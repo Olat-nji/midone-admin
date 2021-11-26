@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Olatunji\MidoneAdmin\Http\Middleware;
 
 
 use Illuminate\Contracts\Auth\StatefulGuard;
