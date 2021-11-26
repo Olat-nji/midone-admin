@@ -60,16 +60,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function chats() 
-    {
-        $recipients = $this->hasMany('App\Models\Chat_Recipient','user_id');
-        $chats=Chat::where('hi','')->get();
-        foreach ($recipients as $key => $recipient) {
-            $chats=$chats->merge(Chat::where('id','user_id')->get());
-        }
-        $chats=$chats->unique();
-        return $chats;
-    }
+    
 
 
 }
