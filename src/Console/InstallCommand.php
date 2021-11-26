@@ -139,6 +139,8 @@ class InstallCommand extends Command
 
 
         // View Components...
+        copy(__DIR__.'/../../stubs/View/Components', app_path('View/Components'));
+
         copy(__DIR__ . '/../../routes/web.php', base_path('routes/web.php'));
         copy(__DIR__ . '/../../config/main.php', base_path('config/main.php'));
 
