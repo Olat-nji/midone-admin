@@ -42,6 +42,7 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'public', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'http', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'components', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'providers', '--force' => true]);
 
 
 
@@ -139,8 +140,6 @@ class InstallCommand extends Command
 
 
         // View Components...
-        copy(__DIR__.'/../../stubs/View/Components', app_path('View/Components'));
-
         copy(__DIR__ . '/../../routes/web.php', base_path('routes/web.php'));
         copy(__DIR__ . '/../../config/main.php', base_path('config/main.php'));
 
