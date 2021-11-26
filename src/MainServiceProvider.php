@@ -158,6 +158,10 @@ class MainServiceProvider extends ServiceProvider
             __DIR__.'/../routes/' => base_path('routes/web.php'),
         ], 'routes');
 
+        $this->publishes([
+            __DIR__.'/../stubs/View/Components' => app_path('View/Components'),
+        ], 'components');
+
     }
 
 

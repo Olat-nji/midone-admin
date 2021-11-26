@@ -41,6 +41,7 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'app', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'public', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'http', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'components', '--force' => true]);
 
 
 
@@ -125,6 +126,7 @@ class InstallCommand extends Command
 
 
         (new Filesystem)->deleteDirectory(resource_path('sass'));
+
 
 
         // Service Providers...
