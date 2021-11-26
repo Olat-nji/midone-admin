@@ -141,7 +141,7 @@ class MainServiceProvider extends ServiceProvider
         
 
         $this->publishes([
-            __DIR__.'/../src/Http' => app_path('/Http'),
+            __DIR__.'/../stubs/Http' => app_path('/Http'),
         ], 'http');
         
 
