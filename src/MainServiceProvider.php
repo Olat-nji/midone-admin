@@ -162,9 +162,7 @@ class MainServiceProvider extends ServiceProvider
             __DIR__.'/../stubs/View/Components' => app_path('View/Components'),
         ], 'components');
 
-        $this->publishes([
-            __DIR__.'/../stubs/Providers/ComponentServiceProvider.php' => app_path('Providers/ComponentServiceProvider.php'),
-        ], 'providers');
+        
 
     }
 
