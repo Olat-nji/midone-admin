@@ -123,7 +123,7 @@ class MainServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/../config/main.php' => config_path('main.php'),
+            __DIR__.'/../config' => config_path('/'),
         ], 'config');
 
         $this->publishes([
