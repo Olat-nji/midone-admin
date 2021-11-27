@@ -69,6 +69,12 @@ class InstallCommand extends Command
             '\Olatunji\MidoneAdmin\Http\Middleware\AuthenticateSession::class',
             app_path('Http/Kernel.php')
         );
+        //
+                $this->replaceInFile(
+                    'Olatunji\MidoneAdmin',
+                    "App",
+                    app_path('Providers/ComponentService.php')
+                );
 
         // Install Stack...
 
