@@ -129,6 +129,7 @@ class InstallCommand extends Command
 
         // Service Providers...
         copy(__DIR__ . '/../../stubs/app/Providers/MainServiceProvider.php', app_path('Providers/MainServiceProvider.php'));
+        
 
         $this->installServiceProviderAfter('FortifyServiceProvider', 'MainServiceProvider');
         $this->installServiceProviderAfter('MainServiceProvider', 'ComponentServiceProvider');

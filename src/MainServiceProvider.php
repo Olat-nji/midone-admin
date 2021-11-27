@@ -43,19 +43,19 @@ class MainServiceProvider extends ServiceProvider
         $this->configurePublishing();
         $this->configureCommands();
 
-        RedirectResponse::macro('banner', function ($message) {
-            return $this->with('flash', [
-                'bannerStyle' => 'success',
-                'banner' => $message,
-            ]);
-        });
+        // RedirectResponse::macro('banner', function ($message) {
+        //     return $this->with('flash', [
+        //         'bannerStyle' => 'success',
+        //         'banner' => $message,
+        //     ]);
+        // });
 
-        RedirectResponse::macro('dangerBanner', function ($message) {
-            return $this->with('flash', [
-                'bannerStyle' => 'danger',
-                'banner' => $message,
-            ]);
-        });
+        // RedirectResponse::macro('dangerBanner', function ($message) {
+        //     return $this->with('flash', [
+        //         'bannerStyle' => 'danger',
+        //         'banner' => $message,
+        //     ]);
+        // });
 
         
     }
