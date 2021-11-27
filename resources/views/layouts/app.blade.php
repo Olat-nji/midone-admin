@@ -11,12 +11,12 @@
     <meta name="description" content="Skylevel-Concepts is a Nigeria based IT company, where creative minds provide solutions and help to move businesses to the next level. We are built on a great level of integrity, principle and excellence out put." />
     <meta name="author" content="skylevelconcepts.com.ng"> --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{asset('public/img/favicon.png')}}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="public/img/apple-touch-icon.png">
-    {{-- <link rel="stylesheet" href="{{ asset('public/css/app2.css') }}" > --}}
-    <link rel="stylesheet" href="{{asset('public/css/main.css')}}">
-    <script src="{{ asset('public/js/app.js') }}" defer></script>
-    <script src="{{ asset('public/js/alpine.js') }}" defer></script>
+    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    {{-- <link rel="stylesheet" href="{{ asset('css/app2.css') }}" > --}}
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/alpine.js') }}" defer></script>
 
 
 
@@ -36,7 +36,7 @@
 
 
     @include('main.includes.footer')
-    <script src="public/js/main.js"></script>
+    <script src="js/main.js"></script>
 
     <script type="text/javascript">
         (function() {

@@ -12,16 +12,16 @@
     <meta name="author" content="skylevelconcepts.com.ng"> --}}
     
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{asset('public/img/favicon.png')}}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="public/img/apple-touch-icon.png">
+    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="public/css/main.css">
-    <link rel="stylesheet" href="{{ asset('public/css/app2.css') }}">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{ asset('css/app2.css') }}">
     <title>{{env('APP_NAME')}} - {{$page}}</title>
     @livewireStyles
     @livewireScripts
-    <script src="{{ asset('public/js/app.js') }}" defer></script>
-    <script src="{{ asset('public/js/alpine.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/alpine.js') }}" defer></script>
     @stack('scripts')
 </head>
 @include('vendor.sweetalert.alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
@@ -50,7 +50,7 @@
 
 
 
-    <script src="public/js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
