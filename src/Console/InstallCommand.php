@@ -42,7 +42,7 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'public', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'http', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'components', '--force' => true]);
-        
+
 
 
 
@@ -73,9 +73,6 @@ class InstallCommand extends Command
         // Install Stack...
 
         $this->installLivewireStack();
-
-
-        
     }
 
     /**
@@ -132,8 +129,9 @@ class InstallCommand extends Command
 
         // Service Providers...
         copy(__DIR__ . '/../../stubs/app/Providers/MainServiceProvider.php', app_path('Providers/MainServiceProvider.php'));
-        copy(__DIR__ . '/../../stubs/app/Providers/MainServiceProvider.php', app_path('Providers/MainServiceProvider.php'));
+
         $this->installServiceProviderAfter('FortifyServiceProvider', 'MainServiceProvider');
+        $this->installServiceProviderAfter('MainServiceProvider', 'ComponentServiceProvider');
 
 
 
