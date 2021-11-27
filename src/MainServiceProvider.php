@@ -135,13 +135,13 @@ class MainServiceProvider extends ServiceProvider
         ], 'database');
 
         $this->publishes([
-            __DIR__.'/../stubs/Models' => app_path('/Models'),
+            __DIR__.'/../stubs/Models' => app_path('Models'),
         ], 'models');
 
         
 
         $this->publishes([
-            __DIR__.'/../stubs/Http' => app_path('/Http'),
+            __DIR__.'/../stubs/Http' => app_path('Http'),
         ], 'http');
         
 
