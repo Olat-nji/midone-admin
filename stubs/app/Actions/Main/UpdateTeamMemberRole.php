@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Main;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
