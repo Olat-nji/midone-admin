@@ -1,6 +1,9 @@
 {
     "name": "olat-nji/midone-admin",
-    "keywords": ["laravel", "auth"],
+    "keywords": [
+        "laravel",
+        "auth"
+    ],
     "license": "MIT",
     "description": "A Midone powered, laravel built admin dashboard, fully customized with an auth capabilities",
     "authors": [{
@@ -33,7 +36,6 @@
         }
     },
     "extra": {
-
         "laravel": {
             "providers": [
                 "Olatunji\\MidoneAdmin\\MainServiceProvider"
@@ -42,6 +44,7 @@
     },
     "config": {
         "sort-packages": true
-    }
-
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
