@@ -134,19 +134,19 @@ class MainServiceProvider extends ServiceProvider
             __DIR__.'/../database' => database_path('/'),
         ], 'database');
 
-        $this->publishes([
-            __DIR__.'/../stubs/Models' => app_path('Models'),
-        ], 'models');
+        // $this->publishes([
+        //     __DIR__.'/../stubs/app/Models' => app_path('Models'),
+        // ], 'models');
 
         
 
-        $this->publishes([
-            __DIR__.'/../stubs/Http' => app_path('Http'),
-        ], 'http');
+        // $this->publishes([
+        //     __DIR__.'/../stubs/app/Http' => app_path('Http'),
+        // ], 'http');
         
-        $this->publishes([
-            __DIR__.'/../stubs/app/Policies' => app_path('Policies'),
-        ], 'policies');
+        // $this->publishes([
+        //     __DIR__.'/../stubs/app/Policies' => app_path('Policies'),
+        // ], 'policies');
         $this->publishes([
             __DIR__.'/../stubs/app' => app_path('/'),
         ], 'app');

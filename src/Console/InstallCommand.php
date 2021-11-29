@@ -37,12 +37,9 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'config', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'views', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'database', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'models', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'app', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'public', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'http', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'policy', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'components', '--force' => true]);
+        
 
 
 
