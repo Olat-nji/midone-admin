@@ -136,9 +136,9 @@ class InstallCommand extends Command
         $this->replaceInFile(
             'Olatunji\MidoneAdmin',
             "App",
-            app_path('Providers/ComponentService.php')
+            app_path('Providers/ComponentServiceProvider.php')
         );
-        
+
         $this->installServiceProviderAfter('FortifyServiceProvider', 'MainServiceProvider');
         $this->installServiceProviderAfter('MainServiceProvider', 'ComponentServiceProvider');
 
