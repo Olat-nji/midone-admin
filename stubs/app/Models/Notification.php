@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use App\Mail\NewProject;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
