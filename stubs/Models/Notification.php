@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Mail\NewProject;
+// use App\Mail\NewProject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
@@ -25,7 +25,7 @@ class Notification extends Model
             'seen' => $notification['seen'],
         ]);
         foreach ($notification['to'] as $recipient) {
-            Mail::to($recipient->email)->queue(new NewProject($notification['project'],$notification['user']));
+            // Mail::to($recipient->email)->queue(new NewProject($notification['project'],$notification['user']));
         }
     }
 
