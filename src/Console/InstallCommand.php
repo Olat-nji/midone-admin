@@ -158,6 +158,8 @@ class InstallCommand extends Command
 
         // Routes...
         $this->replaceInFile('auth:api', 'auth:sanctum', base_path('routes/api.php'));
+        $this->replaceInFile('midone-jetstream', basename(base_path()), base_path('config/livewire.php'));
+        
 
 
         $this->line('');
