@@ -4,7 +4,7 @@
     border-color: rgba(113, 128, 150, var(--border-opacity));">
         <div class="mobile-menu-bar ">
             <a href="{{url('/')}}" class="flex mr-auto" data-turbolinks="false">
-                <img alt="{{config('app.name', 'Skylevel')}}" class="w-12 h-12" src="{{asset('public/img/apple-touch-icon.png')}}">
+                <img alt="{{config('app.name', 'Skylevel')}}" class="w-12 h-12" src="{{asset('img/apple-touch-icon.png')}}">
             </a>
             <a href="javascript:;" :class="{ 'text-gray-200': dark }" id="mobile-menu-toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 transform -rotate-90"></i> </a>
         </div>

@@ -4,7 +4,7 @@
             <div class="row m-0">
                 <div class="col-lg-6 p-0">
                     <div class="user-img">
-                        <img src="public/images/user-form-bg.jpg" alt="User">
+                        <img src="images/user-form-bg.jpg" alt="User">
                     </div>
                 </div>
                 <div class="col-lg-6 p-0">
@@ -14,7 +14,7 @@
                                 <div class="user-content-inner">
                                     <div class="flex justify-center">
                                         <a href="{{url('/')}}">
-                                            <img src="{{asset('public/img/apple-touch-icon.png')}}">
+                                            <img src="{{asset('img/apple-touch-icon.png')}}">
                                         </a>
 
                                     </div>
