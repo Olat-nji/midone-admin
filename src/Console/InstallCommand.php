@@ -70,15 +70,17 @@ class InstallCommand extends Command
             app_path('Http/Kernel.php')
         );
         //
-                $this->replaceInFile(
-                    'Olatunji\MidoneAdmin',
-                    "App",
-                    app_path('Providers/ComponentService.php')
-                );
+
 
         // Install Stack...
 
         $this->installLivewireStack();
+
+        $this->replaceInFile(
+            'Olatunji\MidoneAdmin',
+            "App",
+            app_path('Providers/ComponentService.php')
+        );
     }
 
     /**
@@ -135,7 +137,7 @@ class InstallCommand extends Command
 
         // Service Providers...
         copy(__DIR__ . '/../../stubs/app/Providers/MainServiceProvider.php', app_path('Providers/MainServiceProvider.php'));
-        
+
 
         $this->installServiceProviderAfter('FortifyServiceProvider', 'MainServiceProvider');
         $this->installServiceProviderAfter('MainServiceProvider', 'ComponentServiceProvider');
