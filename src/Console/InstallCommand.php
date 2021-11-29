@@ -115,15 +115,7 @@ class InstallCommand extends Command
 
 
         // Directories...
-        (new Filesystem)->ensureDirectoryExists(app_path('Actions/Fortify'));
-        (new Filesystem)->ensureDirectoryExists(app_path('Actions/Main'));
-        (new Filesystem)->ensureDirectoryExists(app_path('View/Components'));
-        (new Filesystem)->ensureDirectoryExists(public_path('css'));
-        (new Filesystem)->ensureDirectoryExists(resource_path('css'));
-        (new Filesystem)->ensureDirectoryExists(resource_path('views/admin'));
-
-
-        (new Filesystem)->deleteDirectory(resource_path('sass'));
+        
 
 
 
@@ -163,6 +155,17 @@ class InstallCommand extends Command
 
 
         $this->line('');
+        (new Filesystem)->ensureDirectoryExists(app_path('Actions/Fortify'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Actions/Main'));
+        (new Filesystem)->ensureDirectoryExists(app_path('View/Components'));
+        (new Filesystem)->ensureDirectoryExists(public_path('css'));
+        (new Filesystem)->ensureDirectoryExists(resource_path('css'));
+        (new Filesystem)->ensureDirectoryExists(resource_path('views/admin'));
+
+
+        (new Filesystem)->deleteDirectory(resource_path('sass'));
+
+        
         $this->info('MidoneAdmin scaffolding installed successfully.');
         // $this->comment('Please execute "npm install && npm run dev" to build your assets.');
     }

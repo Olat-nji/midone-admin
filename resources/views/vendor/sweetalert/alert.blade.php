@@ -1,7 +1,7 @@
 <script src="{{ $cdn ?? asset('vendor/sweetalert/sweetalert.all.js')  }}"></script>
 <script>
     window.addEventListener('alert', event => {
-        const type = event.detail.type ? ? null;
+        const type = event.detail.type ?? null;
         const options = {
             position: 'top-end'
             , timer: 3000
