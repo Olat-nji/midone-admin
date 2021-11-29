@@ -8,7 +8,7 @@
         "email": "olayemi289@gmail.com"
     }],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": ">=7.3",
         "fideloper/proxy": "^4.2",
         "doctrine/dbal": "^2.12",
         "jenssegers/agent": "^2.6",
@@ -44,5 +44,5 @@
         "sort-packages": true
     },
     "prefer-stable": true,
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
