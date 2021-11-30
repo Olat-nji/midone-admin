@@ -48,24 +48,11 @@ Fortify::resetPasswordView(function ($request) {
 //             ->from('bar@example.com')
 //             ->to('foo@example.com', 'John Smith')
 //             ->subject('Welcome!');
+
 //     });
 // });
 
-Route::get('/mail/one', function () {
-    return view('mail.one');
-});
 
-Route::get('/mail/two', function () {
-    return view('mail.two');
-});
-Route::get('/mail/three', function () {
-    return view('mail.three');
-});
-
-Route::get('/mail/four', function () {
-    return view('mail.four');
-});
-//Projects
 
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
