@@ -1,6 +1,6 @@
 <?php
 if(env('APP_ENV')=='local'){
-    $path='/midone-jetstream';
+    $path=env('APP_URL');
 }else{
     $path=null;
 }
