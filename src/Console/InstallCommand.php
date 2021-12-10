@@ -102,13 +102,7 @@ class InstallCommand extends Command
      */
     protected function installLivewireStack()
     {
-        // Install Livewire...
         
-        (new Process(['php', 'artisan', 'livewire:discover'], base_path()))
-        ->setTimeout(null)
-        ->run(function ($type, $output) {
-            $this->output->write($output);
-        });
 
         // Sanctum...
         (new Process(['php', 'artisan', 'vendor:publish', '--provider=Laravel\Sanctum\SanctumServiceProvider', '--force'], base_path()))
@@ -144,18 +138,11 @@ class InstallCommand extends Command
 
         // View Components...
         copy(__DIR__ . '/../../routes/web.php', base_path('routes/web.php'));
-        // copy(__DIR__ . '/../../config/main.php', base_path('config/main.php'));
-        // copy(__DIR__ . '/../../config/livewire.php', base_path('config/livewire.php'));
 
-        
-        // Other Views...
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/livewire/resources/views/api', resource_path('views/api'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/livewire/resources/views/profile', resource_path('views/profile'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/livewire/resources/views/auth', resource_path('views/auth'));
 
         // Routes...
         $this->replaceInFile('auth:api', 'auth:sanctum', base_path('routes/api.php'));
-        // $this->replaceInFile('midone-jetstream', basename(base_path()).'/public', base_path('config/livewire.php'));
+
         
 
 
@@ -171,7 +158,7 @@ class InstallCommand extends Command
         (new Filesystem)->deleteDirectory(resource_path('sass'));
 
         
-        $this->info('MidoneAdmin scaffolding installed successfully.');
+        $this->info('Midone Admin scaffolding installed successfully.');
         // $this->comment('Please execute "npm install && npm run dev" to build your assets.');
     }
 

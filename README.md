@@ -33,6 +33,17 @@ Then run migrations:
 ```php
 php artisan migrate:fresh --seed
 ```
+You also need to configure your app url to point to your application directory provided the application in local:
+.env
+```php
+APP_URL=http://localhost/your-app/public
+```
+And your asset url has to point to the application directory to allow required assets in public folder to be seen:
+
+```php
+ASSET_URL=http://localhost/your-app/public
+```
+
 
 Now Enjoy:
 ## Support
