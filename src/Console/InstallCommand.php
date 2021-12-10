@@ -34,7 +34,7 @@ class InstallCommand extends Command
 
 
 
-
+        $this->callSilent('vendor:publish', ['--tag' => 'config', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'views', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'database', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'app', '--force' => true]);
@@ -144,8 +144,8 @@ class InstallCommand extends Command
 
         // View Components...
         copy(__DIR__ . '/../../routes/web.php', base_path('routes/web.php'));
-        copy(__DIR__ . '/../../config/main.php', base_path('config/main.php'));
-        copy(__DIR__ . '/../../config/livewire.php', base_path('config/livewire.php'));
+        // copy(__DIR__ . '/../../config/main.php', base_path('config/main.php'));
+        // copy(__DIR__ . '/../../config/livewire.php', base_path('config/livewire.php'));
 
         
         // Other Views...
