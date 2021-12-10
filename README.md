@@ -46,7 +46,7 @@ ASSET_URL=http://localhost/your-app/public
 ```
 
 
-Now Enjoy:
+Now Enjoy...
 ## Support
 
 This version supports Laravel 7 or greater.
