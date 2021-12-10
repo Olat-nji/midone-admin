@@ -103,7 +103,7 @@ class InstallCommand extends Command
     protected function installLivewireStack()
     {
         // Install Livewire...
-        $this->requireComposerPackages('livewire/livewire:^2.5');
+        
 
         // Sanctum...
         (new Process(['php', 'artisan', 'vendor:publish', '--provider=Laravel\Sanctum\SanctumServiceProvider', '--force'], base_path()))

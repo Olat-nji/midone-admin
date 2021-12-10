@@ -6,7 +6,9 @@ use App\Models\Contact;
 
 use App\Models\Team;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -30,11 +32,15 @@ class Dashboard extends Component
 
     public function render()
     {
+        $users_today = DB::table('sessions')->whereDate('last_activity', '>=', Carbon::today()->getTimestamp())->get();
+
+        $users_today = count($users_today);
 
 
         return view(
             'admin.dashboard',
             [
+                'users_today' => $users_today,
                 'messages' => Contact::where('status', null)->get(),
                 'users' => User::orderBy('id', 'desc')->get()->take(6)
             ]
