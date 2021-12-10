@@ -44,8 +44,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Olatunji\\MidoneAdmin\\MainServiceProvider",
-                "Olatunji\\MidoneAdmin\\ComponentServiceProvider"
+                "Olatunji\\MidoneAdmin\\MainServiceProvider"
             ]
         }
     },

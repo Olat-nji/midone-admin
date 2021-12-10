@@ -104,11 +104,12 @@ class InstallCommand extends Command
     {
         // Install Livewire...
         
-        (new Process(['php', 'artisan', 'livewire:publish', '--config'], base_path()))
+        (new Process(['php', 'artisan', 'livewire:discover'], base_path()))
         ->setTimeout(null)
         ->run(function ($type, $output) {
             $this->output->write($output);
         });
+
         // Sanctum...
         (new Process(['php', 'artisan', 'vendor:publish', '--provider=Laravel\Sanctum\SanctumServiceProvider', '--force'], base_path()))
             ->setTimeout(null)
@@ -125,16 +126,16 @@ class InstallCommand extends Command
 
         // Service Providers...
         copy(__DIR__ . '/../../stubs/app/Providers/MainServiceProvider.php', app_path('Providers/MainServiceProvider.php'));
-        // copy(__DIR__ . '/../../stubs/app/Providers/ComponentServiceProvider.php', app_path('Providers/ComponentServiceProvider.php'));
+        copy(__DIR__ . '/../../stubs/app/Providers/ComponentServiceProvider.php', app_path('Providers/ComponentServiceProvider.php'));
 
-        // $this->replaceInFile(
-        //     'Olatunji\MidoneAdmin',
-        //     "App",
-        //     app_path('Providers/ComponentServiceProvider.php')
-        // );
+        $this->replaceInFile(
+            'Olatunji\MidoneAdmin',
+            "App",
+            app_path('Providers/ComponentServiceProvider.php')
+        );
 
         $this->installServiceProviderAfter('FortifyServiceProvider', 'MainServiceProvider');
-        // $this->installServiceProviderAfter('MainServiceProvider', 'ComponentServiceProvider');
+        $this->installServiceProviderAfter('MainServiceProvider', 'ComponentServiceProvider');
 
 
 
