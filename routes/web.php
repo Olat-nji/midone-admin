@@ -54,13 +54,16 @@ Fortify::resetPasswordView(function ($request) {
 
 
 
+Route::get('/', function () {
+    return view('auth.login');
+})->name('index');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     Route::get('/dashboard', App\Http\Admin\Dashboard::class)->name('dashboard');
-    
+
     Route::get('/users', App\Http\Admin\Users::class)->name('users');
-    
+
 
 
     // User & Profile...

@@ -29,13 +29,13 @@
 
 <body>
 
-    @include('main.includes.header')
+    {{-- @include('main.includes.header') --}}
 
 
     {{$slot}}
 
 
-    @include('main.includes.footer')
+    {{-- @include('main.includes.footer') --}}
     <script src="js/main.js"></script>
 
     <script type="text/javascript">
