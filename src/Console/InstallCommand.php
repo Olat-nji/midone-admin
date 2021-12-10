@@ -34,7 +34,7 @@ class InstallCommand extends Command
 
 
 
-        $this->callSilent('vendor:publish', ['--tag' => 'config', '--force' => true]);
+
         $this->callSilent('vendor:publish', ['--tag' => 'views', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'database', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'app', '--force' => true]);
@@ -104,7 +104,11 @@ class InstallCommand extends Command
     {
         // Install Livewire...
         
-
+        (new Process(['php', 'artisan', 'livewire:publish', '--config'], base_path()))
+        ->setTimeout(null)
+        ->run(function ($type, $output) {
+            $this->output->write($output);
+        });
         // Sanctum...
         (new Process(['php', 'artisan', 'vendor:publish', '--provider=Laravel\Sanctum\SanctumServiceProvider', '--force'], base_path()))
             ->setTimeout(null)
@@ -140,9 +144,9 @@ class InstallCommand extends Command
         // View Components...
         copy(__DIR__ . '/../../routes/web.php', base_path('routes/web.php'));
         copy(__DIR__ . '/../../config/main.php', base_path('config/main.php'));
+        copy(__DIR__ . '/../../config/livewire.php', base_path('config/livewire.php'));
 
-
-
+        
         // Other Views...
         (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/livewire/resources/views/api', resource_path('views/api'));
         (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/livewire/resources/views/profile', resource_path('views/profile'));
