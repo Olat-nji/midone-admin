@@ -1,6 +1,6 @@
 <?php
 
-namespace Olatunji\MidoneAdmin\Providers;
+namespace Olatunji\MidoneAdmin;
 
 use App\Helpers\Features;
 use App\Http\Admin\Api\ApiTokenManager;
