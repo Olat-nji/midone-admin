@@ -125,16 +125,16 @@ class InstallCommand extends Command
 
         // Service Providers...
         copy(__DIR__ . '/../../stubs/app/Providers/MainServiceProvider.php', app_path('Providers/MainServiceProvider.php'));
-        copy(__DIR__ . '/../../stubs/app/Providers/ComponentServiceProvider.php', app_path('Providers/ComponentServiceProvider.php'));
+        // copy(__DIR__ . '/../../stubs/app/Providers/ComponentServiceProvider.php', app_path('Providers/ComponentServiceProvider.php'));
 
-        $this->replaceInFile(
-            'Olatunji\MidoneAdmin',
-            "App",
-            app_path('Providers/ComponentServiceProvider.php')
-        );
+        // $this->replaceInFile(
+        //     'Olatunji\MidoneAdmin',
+        //     "App",
+        //     app_path('Providers/ComponentServiceProvider.php')
+        // );
 
         $this->installServiceProviderAfter('FortifyServiceProvider', 'MainServiceProvider');
-        $this->installServiceProviderAfter('MainServiceProvider', 'ComponentServiceProvider');
+        // $this->installServiceProviderAfter('MainServiceProvider', 'ComponentServiceProvider');
 
 
 
