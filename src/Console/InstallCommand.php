@@ -178,9 +178,7 @@ class InstallCommand extends Command
                 
                 
                 
-                Route::get('/', function () {
-                    return view('auth.login');
-                })->name('index');
+                
                 
                 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
                 
