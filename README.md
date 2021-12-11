@@ -1,6 +1,6 @@
 # Midone Admin
 
-- [Documentation](#introduction)
+
 - [Usage](#usage)
 - [Support](#support)
 
