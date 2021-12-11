@@ -136,13 +136,9 @@ class InstallCommand extends Command
 
 
 
-        // Actions...
-
+        // Routes...
         $this->replaceInFile('auth:api', 'auth:sanctum', base_path('routes/api.php'));
 
-        if (!Str::contains(file_get_contents(base_path('routes/web.php')), "'/dashboard'")) {
-            (new Filesystem)->append(base_path('routes/web.php'), $this->livewireRouteDefinition());
-        }
 
 
         $routes = file_get_contents(base_path('routes/web.php'));
@@ -231,8 +227,8 @@ EOF;
 
 
 
-        // Routes...
-        $this->replaceInFile('auth:api', 'auth:sanctum', base_path('routes/api.php'));
+
+
 
 
 
