@@ -39,7 +39,7 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'database', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'app', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'public', '--force' => true]);
-
+        
 
 
 
@@ -102,7 +102,7 @@ class InstallCommand extends Command
      */
     protected function installLivewireStack()
     {
-
+        
 
         // Sanctum...
         (new Process(['php', 'artisan', 'vendor:publish', '--provider=Laravel\Sanctum\SanctumServiceProvider', '--force'], base_path()))
@@ -114,7 +114,7 @@ class InstallCommand extends Command
 
 
         // Directories...
-
+        
 
 
 
@@ -133,104 +133,90 @@ class InstallCommand extends Command
 
 
 
+                // Routes...
+                $this->replaceInFile('auth:api', 'auth:sanctum', base_path('routes/api.php'));
 
+
+
+                $routes = file_get_contents(base_path('routes/web.php'));
+                file_put_contents(base_path('routes/web.php'), str_replace(
+                    'use Illuminate\Support\Facades\Route;',
+                    'use Illuminate\Support\Facades\Route;' . PHP_EOL . 'use App\Http\Controllers\CurrentTeamController;'
+                        . PHP_EOL . 'use App\Http\Controllers\Livewire\ApiTokenController;'
+                        . PHP_EOL . 'use App\Http\Controllers\Livewire\TeamController;'
+                        . PHP_EOL . 'use App\Http\Controllers\Livewire\UserProfileController;'
+                        . PHP_EOL . 'use App\Helpers\MainHelper;'
+                        . PHP_EOL . 'use Laravel\Fortify\Fortify;',
+                    $routes
+                ));
+                $routes = file_get_contents(base_path('routes/web.php'));
+                $routeDefinition = <<<'EOF'
+        
+        
+                Route::post('git-pull-it', function () {
+                    return shell_exec('git pull origin new-frontend-main');
+                });
+                Fortify::loginView(function () {
+                    return view('auth.login');
+                });
+                
+                Fortify::registerView(function () {
+                    return view('auth.register');
+                });
+                Fortify::requestPasswordResetLinkView(function () {
+                    return view('auth.forgot-password');
+                });
+                Fortify::resetPasswordView(function ($request) {
+                    return view('auth.reset-password', ['request' => $request]);
+                });
+                
+                
+                // Fortify::verifyEmailView(function () {
+                //     return view('auth.verify-email');
+                // });
+              
+                
+                
+                
+                Route::get('/', function () {
+                    return view('auth.login');
+                })->name('index');
+                
+                Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+                
+                    Route::get('/dashboard', App\Http\Admin\Dashboard::class)->name('dashboard');
+                
+                    Route::get('/users', App\Http\Admin\Users::class)->name('users');
+                
+                
+                
+                    // User & Profile...
+                    Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
+                
+                
+                    // API...
+                    if (MainHelper::hasApiFeatures()) {
+                        Route::get('/user/api-tokens', [ApiTokenController::class, 'index'])->name('api-tokens.index');
+                    }
+                
+                    // Teams...
+                    if (MainHelper::hasTeamFeatures()) {
+                        Route::get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
+                        Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+                        Route::put('/current-team', [CurrentTeamController::class, 'update'])->name('current-team.update');
+                    }
+                });
+                
+        EOF;
+        
+                (new Filesystem)->append(base_path('routes/web.php'), $routeDefinition);
+        
 
 
         // Routes...
         $this->replaceInFile('auth:api', 'auth:sanctum', base_path('routes/api.php'));
 
-
-
-        $routes = file_get_contents(base_path('routes/web.php'));
-        file_put_contents(base_path('routes/web.php'), str_replace(
-            'use Illuminate\Support\Facades\Route;',
-            'use Illuminate\Support\Facades\Route;' . PHP_EOL . 'use App\Http\Controllers\CurrentTeamController;'
-                . PHP_EOL . 'use App\Http\Controllers\Livewire\ApiTokenController;'
-                . PHP_EOL . 'use App\Http\Controllers\Livewire\TeamController;'
-                . PHP_EOL . 'use App\Http\Controllers\Livewire\UserProfileController;'
-                . PHP_EOL . 'use App\Helpers\MainHelper;'
-                . PHP_EOL . 'use Laravel\Fortify\Fortify;',
-            $routes
-        ));
-        $routes = file_get_contents(base_path('routes/web.php'));
-        $routeDefinition = <<<'EOF'
-
-
-        Route::post('git-pull-it', function () {
-            return shell_exec('git pull origin new-frontend-main');
-        });
-        Fortify::loginView(function () {
-            return view('auth.login');
-        });
         
-        Fortify::registerView(function () {
-            return view('auth.register');
-        });
-        Fortify::requestPasswordResetLinkView(function () {
-            return view('auth.forgot-password');
-        });
-        Fortify::resetPasswordView(function ($request) {
-            return view('auth.reset-password', ['request' => $request]);
-        });
-        
-        
-        // Fortify::verifyEmailView(function () {
-        //     return view('auth.verify-email');
-        // });
-        
-        // Send Email
-        // Route::get('/test', function () {
-        //     $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
-        //     $beautymail->send('emails.welcome', [], function ($message) {
-        //         $message
-        //             ->from('bar@example.com')
-        //             ->to('foo@example.com', 'John Smith')
-        //             ->subject('Welcome!');
-        
-        //     });
-        // });
-        
-        
-        
-        Route::get('/', function () {
-            return view('auth.login');
-        })->name('index');
-        
-        Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-        
-            Route::get('/dashboard', App\Http\Admin\Dashboard::class)->name('dashboard');
-        
-            Route::get('/users', App\Http\Admin\Users::class)->name('users');
-        
-        
-        
-            // User & Profile...
-            Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
-        
-        
-            // API...
-            if (MainHelper::hasApiFeatures()) {
-                Route::get('/user/api-tokens', [ApiTokenController::class, 'index'])->name('api-tokens.index');
-            }
-        
-            // Teams...
-            if (MainHelper::hasTeamFeatures()) {
-                Route::get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
-                Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
-                Route::put('/current-team', [CurrentTeamController::class, 'update'])->name('current-team.update');
-            }
-        });
-        
-EOF;
-
-        (new Filesystem)->append(base_path('routes/web.php'), $routeDefinition);
-
-
-
-
-
-
-
 
 
         $this->line('');
@@ -244,7 +230,7 @@ EOF;
 
         (new Filesystem)->deleteDirectory(resource_path('sass'));
 
-
+        
         $this->info('Midone Admin scaffolding installed successfully.');
         // $this->comment('Please execute "npm install && npm run dev" to build your assets.');
     }
