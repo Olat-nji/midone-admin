@@ -33,7 +33,7 @@ Then run migrations:
 ```php
 php artisan migrate:fresh --seed
 ```
-You also need to configure your app url to point to your application directory provided the application is local:
+You also need to configure your APP_URL to point to your application directory provided the application is local:
 Your .env file
 ```php
 APP_URL=http://localhost/your-app/public
