@@ -16,7 +16,6 @@
         "jenssegers/agent": "^2.6",
         "laravel/fortify": "^1.6.1",
         "doctrine/dbal": "^2.12",
-        "fideloper/proxy": "^4.2",
         "livewire/livewire": "^2.3"
     },
     "require-dev": {
